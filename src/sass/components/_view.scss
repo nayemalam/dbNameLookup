@@ -1,0 +1,36 @@
+.view {
+  display: flex;
+  justify-content: space-evenly;
+  box-sizing: border-box;
+
+  .search-results {
+    border: 1px solid black;
+    border-radius: 4px;
+    width: 300px;
+    height: 300px;
+
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      padding-top: 10px;
+
+      li {
+        display: inline;
+        padding: 10px;
+        color: $mainBlack;
+        font-weight: 600;
+      }
+    }
+  }
+
+  .feature-image {
+    margin-top: -16px;
+    img {
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      // padding: 5px;
+      width: 300px;
+    }
+  }
+}
