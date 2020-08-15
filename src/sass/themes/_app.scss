@@ -1,0 +1,21 @@
+#root {
+    height: 100%;
+}
+
+html {
+    height: 100%;
+    overflow-y: scroll;
+}
+
+body {
+    height: 100%;
+}
+
+.app {
+    height: 100%;
+    font-family: $mainFont !important;
+
+    .hide {
+        display: none;
+    }
+}
