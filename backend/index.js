@@ -5,6 +5,7 @@ const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+const Name = require('./models/names');
 
 const routes = require('./routes/api');
 
@@ -23,22 +24,9 @@ mongoose.connection.on('connected', () => {
   console.log('Mongoose is connected.');
 });
 
-// saving dummy data to db
-// const data = {
-//   firstName: 'test-db-nayem',
-//   lastName: 'test-db-alam'
-// };
-
-// creating an instance for me to save data to db
-// const newName = new Name(data);
-// newName.save((error) => {
-//   if (error) {
-//     console.log('error saving on db');
-//   } else {
-//     console.log('data saved to db');
-//   }
-// });
-
+// to get the body in api.js
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 // HTTP req logger
 app.use(morgan('tiny'));
 app.use('/api', routes);

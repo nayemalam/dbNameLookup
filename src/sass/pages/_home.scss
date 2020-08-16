@@ -1,2 +1,50 @@
 .home {
+  padding-top: 20px;
+  p {
+    text-align: center;
+    margin-top: -20px;
+  }
+
+  // component form
+  form {
+    text-align: center;
+
+    .last-name {
+      margin-left: 20px;
+    }
+  }
+
+  // component submission/search buttons
+  .action-btns {
+    text-align: center;
+    padding: 20px 0 40px 0;
+
+    .submit-btn {
+      padding-left: 30px;
+      padding-right: 30px;
+      border: 1px solid $primaryBlue;
+    }
+
+    .search-btn {
+      padding-left: 30px;
+      padding-right: 30px;
+      margin-left: 20px;
+      border: 1px solid rgb(60, 212, 111);
+    }
+  }
+
+  // component instructions
+  .instructions {
+    text-align: center;
+
+    p {
+      cursor: pointer;
+    }
+
+    ul {
+      display: inline-block;
+      padding: 0;
+      margin: 0;
+    }
+  }
 }

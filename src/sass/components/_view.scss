@@ -6,8 +6,12 @@
   .search-results {
     border: 1px solid black;
     border-radius: 4px;
-    width: 300px;
+    width: 500px;
     height: 300px;
+
+    .search-helper {
+      margin: 0;
+    }
 
     ul {
       list-style-type: none;
@@ -25,12 +29,13 @@
   }
 
   .feature-image {
-    margin-top: -16px;
+    width: 500px;
+    height: 300px;
     img {
       border: 1px solid #ddd;
       border-radius: 4px;
+
       // padding: 5px;
-      width: 300px;
     }
   }
 }
