@@ -42,7 +42,9 @@ class Home extends Component {
     event.preventDefault();
     this.setState({
       displayFirst: this.state.firstName,
-      displayLast: this.state.lastName
+      displayLast: this.state.lastName,
+      firstName: '',
+      lastName: ''
     });
     console.log('submitted info: ', this.state.firstName, this.state.lastName);
   };
