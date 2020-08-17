@@ -32,13 +32,14 @@ class NameList extends Component {
         console.log('Error retrieving data.');
       });
   };
+
   render() {
     console.log(this.state.users);
     return (
       <div className="namelist">
         <Container>
           <h1>
-            Name List{' '}
+            Name List
             <span role="img" aria-label="rocket emoji">
               👍
             </span>

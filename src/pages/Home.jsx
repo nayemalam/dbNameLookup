@@ -23,7 +23,10 @@ class Home extends Component {
     this.state = {
       firstName: '',
       lastName: '',
-      instructions: false
+      instructions: false,
+      users: [],
+      firstNameSearched: '',
+      lastNameSearched: ''
     };
 
     this.handleNameChange = this.handleNameChange.bind(this);
@@ -56,7 +59,11 @@ class Home extends Component {
     })
       .then(() => {
         console.log('Data sent to the server, success.');
-        NotificationManager.success('Data added to the db.', 'Success', 3000);
+        NotificationManager.success(
+          'Data added to the Name List.',
+          'Success',
+          3000
+        );
         this.reset();
       })
       .catch(() => {
@@ -66,9 +73,32 @@ class Home extends Component {
     // console.log('submitted info: ', this.state.firstName, this.state.lastName);
   };
 
-  handleSearch = (event) => {
-    event.preventDefault();
-    console.log('searching for', this.state.firstName, this.state.lastName);
+  componentDidMount() {
+    this.handleSearch();
+  }
+  handleSearch = () => {
+    // event.preventDefault();
+
+    console.log('Component Mounted');
+
+    axios
+      .get('/api')
+      .then((response) => {
+        const data = response.data;
+        this.setState({
+          users: data
+        });
+        console.log('Data has been received.');
+      })
+      .catch(() => {
+        console.log('Error retrieving data.');
+      });
+
+    this.setState({
+      firstNameSearched: this.state.firstName,
+      lastNameSearched: this.state.lastName
+    });
+
     this.reset();
   };
 
@@ -86,7 +116,20 @@ class Home extends Component {
   };
 
   render() {
-    console.log('State:', this.state.firstName, this.state.lastName);
+    // console.log('State:', this.state.firstName, this.state.lastName);
+    // console.log('Users', this.state.users);
+
+    const filterNames = (array, firstName, lastName) => {
+      return array.filter((user) =>
+        !user.firstName.toLowerCase().includes(firstName.toLowerCase()) ||
+        !user.lastName.toLowerCase().includes(lastName.toLowerCase())
+          ? !user
+          : user.firstName.toLowerCase().includes(firstName.toLowerCase()) ||
+            user.lastName.toLowerCase().includes(lastName.toLowerCase())
+      );
+    };
+    // console.log('Filter: ', filterNames(this.state.users, 'Cha', ''));
+    // console.log(this.state.firstNameSearched, this.state.lastNameSearched);
     return (
       <div className="home">
         <Container>
@@ -143,25 +186,26 @@ class Home extends Component {
             <div className="search-results">
               <TableContainer component={Paper} style={{ textAlign: 'center' }}>
                 <Table aria-label="search table">
-                  <TableBody>
-                    <TableRow>
-                      <TableCell component="th" scope="row">
-                        Nayem
-                      </TableCell>
-                      <TableCell>Alam</TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell component="th" scope="row">
-                        Nayem
-                      </TableCell>
-                      <TableCell>Alam</TableCell>
-                    </TableRow>
-                    <TableRow>
-                      <TableCell component="th" scope="row">
-                        Nayem
-                      </TableCell>
-                      <TableCell>Alam</TableCell>
-                    </TableRow>
+                  <TableBody
+                    className={
+                      this.state.firstNameSearched === '' &&
+                      this.state.lastNameSearched === ''
+                        ? 'hide'
+                        : ''
+                    }
+                  >
+                    {filterNames(
+                      this.state.users,
+                      this.state.firstNameSearched,
+                      this.state.lastNameSearched
+                    ).map((user, id) => (
+                      <TableRow key={id}>
+                        <TableCell component="th" scope="row">
+                          {user.firstName}
+                        </TableCell>
+                        <TableCell>{user.lastName}</TableCell>
+                      </TableRow>
+                    ))}
                   </TableBody>
                 </Table>
               </TableContainer>
