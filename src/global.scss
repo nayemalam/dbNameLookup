@@ -1,0 +1,15 @@
+// prettier-ignore
+@import
+// theme
+'./sass/utilities/variables',
+'./sass/themes/overrides',
+'./sass/themes/app',
+// components
+'./sass/components/navigation',
+'./sass/components/renderview',
+'./sass/components/instructions',
+'./sass/components/actionbuttons',
+//pages
+'./sass/pages/home',
+'./sass/pages/namelist',
+'./sass/pages/notfound';

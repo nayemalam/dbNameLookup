@@ -1,0 +1,16 @@
+.home {
+  padding-top: 20px;
+  p {
+    text-align: center;
+    margin-top: -20px;
+  }
+
+  // component form
+  form {
+    text-align: center;
+
+    .last-name {
+      margin-left: 20px;
+    }
+  }
+}

@@ -1,0 +1,11 @@
+.namelist {
+  // table component
+  .table-header {
+    background-color: $mainBlack;
+
+    .title {
+      color: $mainWhite;
+      font-weight: bold;
+    }
+  }
+}
