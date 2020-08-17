@@ -1,6 +1,18 @@
 # Name Finder (from DB) ⚡
 
 *** This project was only tested on the Google Chrome browser
+
+## Relevant: 
+- Yarn pkg manager
+- mongodb installed locally 
+  - Mac
+    - Not on Catalina:
+      - `brew tap mongodb/brew (given you have homebrew installed)`
+      - `brew install mongodb-community@4.4`
+      - `brew services start mongodb-community@4.4` || `brew services run mongodb-community@4.4`
+      - Check if running: `ps aux | grep -v grep | grep mongod`
+      - In another terminal window: `mongo` 
+    - On Catalina (https://medium.com/better-programming/installing-mongodb-on-macos-catalina-aab1cbe0c836)
 ## Steps to reproduce:
 - #### git clone `https://github.com/nayemalam/dbNameLookup.git`
 - #### cd `dbNameLookup`
