@@ -10,8 +10,8 @@ const Name = require('./models/names');
 const routes = require('./routes/api');
 
 // connect to mongodb
-const MONGODB_URI =
-  'mongodb+srv://nayem:mechasys123@mechasysdb.s0faz.mongodb.net/<dbname>?retryWrites=true&w=majority';
+// const MONGODB_URI =
+//   'mongodb+srv://nayem:mechasys123@mechasysdb.s0faz.mongodb.net/<dbname>?retryWrites=true&w=majority';
 
 // connect mongoose or db
 mongoose.connect('mongodb://localhost/names-db', {
