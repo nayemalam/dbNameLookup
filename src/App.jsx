@@ -7,7 +7,7 @@ import Home from './pages/Home';
 import NameList from './pages/NameList';
 import NotFound from './pages/NotFound';
 // component imports
-import Navigation from './components/navigation/Navigation';
+import Navigation from './components/Navigation';
 // internal css imports
 import './global.scss';
 

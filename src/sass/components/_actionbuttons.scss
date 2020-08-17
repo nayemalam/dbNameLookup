@@ -1,0 +1,17 @@
+.action-btns {
+  text-align: center;
+  padding: 20px 0 40px 0;
+
+  .submit-btn {
+    padding-left: 30px;
+    padding-right: 30px;
+    border: 1px solid $primaryBlue;
+  }
+
+  .search-btn {
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-left: 20px;
+    border: 1px solid rgb(60, 212, 111);
+  }
+}
